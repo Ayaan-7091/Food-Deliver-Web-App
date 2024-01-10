@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+<style>
+{% block style %}
+
+.card1{
+    margin: 5rem auto ;
+    font-size: 25px;
+  font-family: 'Josefin Sans', sans-serif;
+  width: 50%;
+  border: 2px solid white;
+  background-color: #ffa104;
+
+}
+
+.label>input{
+background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  padding: 3px;
+  margin: 5px;
+  width: 90;
+  border: 2px solid white;
+
+}
+
+.label>label{
+    margin: 5px;
+}
+
+.some{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    /* grid-template-rows:  1fr 1fr 1fr; */
+}
+
+.card1>p{
+     color: #e58f00;
+     margin: 5px;
+    font-family: 'Pacifico', cursive;
+
+}
+
+.register{
+    border: 2px solid black;
+  background-color: white;
+
+}
+button{
+   width: 96%;
+    margin-top: 20px;
+  margin-bottom: 10px;
+  grid-column: span 2;
+  border-radius: 12px;
+  background-color: #3dd506;
+  color: aliceblue;
+  border: 2px solid #3dd506;
+
+   
+}
+
+#errorMsg{
+    grid-column: span 2;
+    background-color: red;
+    color: white;
+    border-radius: 11px;
+    margin: 1px;
+    padding: 1px;
+    width: 96%;
+    border: 3px solid #ffffff;
+
+
+
+}
+@media screen and (max-width: 767px) {
+    .card1 {
+        width: 90%; /* Adjust as needed for small screens */
+        font-size: 16px;
+    }
+    .label>input{
+        width:90%
+
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .card1 {
+        width: 60%; /* Adjust as needed for medium screens */
+        font-size: 18px;
+
+    }
+    .label>input{
+        width:90%
+
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .card1 {
+        width: 50%; /* Adjust as needed for large screens */
+    }
+    .label>input{
+        width:90%
+
+    }
+}
+
+{% endblock style %}
+</style>
+
+{% block body %}
+
+<div class="main" style="width: 100%;">
+ 
+<div class="card1">
+    <div class="card1 register">
+        <p class="text-center">Register Here Now ! </p>
+    </div>
+    <form action="" method="post">
+    {% csrf_token %}
+
+    <div class="some">
+    {% for field in form %}
+
+    <div class="form-group ">
+        <div class="label">
+           {{field.label_tag}}  {{field}}
+         <!-- </div>
+         <div class="input"> -->
+           
+        </div>
+        
+        
+     
+
+            
+        </div>
+    {% endfor %}
+    <button type="submit">REGISTER</button>
+   
+        {% for error in form.errors %}
+            <small class="text-center" id="errorMsg">Password should not be similar to Username !</small>
+        {% endfor %}
+   
+</form>
+
+</div>
+
+</div>
+</div>
+
+{% endblock body %}

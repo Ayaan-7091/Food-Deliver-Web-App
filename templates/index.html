@@ -1,0 +1,356 @@
+{% extends "base.html" %}
+
+{% block title %}HOME{% endblock title %}
+<style>
+{% block style %}
+section{
+    padding: 2rem 9%;
+}
+
+
+
+.home{
+    
+        background: url(images/home-bg.jpg);
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        flex-wrap: wrap;
+    
+}
+
+.home .content{
+    flex: 1 1 40rem;
+    padding-top: 6.5rem;
+  }
+
+  .home .image{
+    flex: 1 1 40rem;
+  }
+  .home .image img{
+    width: 100%;
+    padding: 1rem;
+    animation:float 3s linear infinite;
+  }
+  @keyframes float {
+    0%, 100%{
+      transform: translateY(0rem);
+    }
+    50%{
+      transform: translateY(3rem);
+    }
+  }
+  .home .content h3{
+    font-size: 5rem;
+    color: #333;
+  }
+  .home .content p{
+    font-size: 1.5rem;
+    color: #333;
+    padding: 1rem 0;
+  }
+
+  .btn{
+    display: inline-block;
+    padding:.8rem 3rem;
+    border:.2rem solid var(--btn-color);
+    color:var(--btn-color);
+    cursor: pointer;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    margin-top: 1rem;
+  }
+  
+  .btn::before{
+    content: '';
+    position: absolute;
+    top:0; right: 0;
+    width:0%;
+    height:100%;
+    background:var(--red);
+    transition: .3s linear;
+    z-index: -1;
+  }
+  .btn:hover{
+    color: white;
+    border: .2rem solid var(--about-sec);
+  }
+  .btn:hover::before{
+    width:100%;
+    left: 0;
+    
+  }
+
+  .speciality-heading{
+    font-size: 40px;
+    padding: 1.5rem 0;
+    text-align: center;
+    color: #333;
+  }
+  .speciality-heading span{
+    color: #e58f00;
+  }
+
+  .main-box-speciality{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .main-box-speciality .box{
+    flex: 1 1 30rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border: 0.1rem solid var(--btn-color);
+    cursor: pointer;
+    border-radius: 1rem;
+  }
+  .main-box-speciality .box .image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    left: 0;
+  }
+
+  .main-box-speciality .box:hover .image{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  
+  }
+  
+  .main-box-speciality .box .content{
+    background: white;
+    text-align: center;
+    padding: 2rem;
+  }
+  .main-box-speciality .box .content img{
+    margin: 1.5rem 0;
+  }
+
+  .speciality .main-box-speciality .box .content h3{
+    font-size: 2.5rem;
+    color:#333;
+   
+
+    
+  }
+  
+  .speciality .main-box-speciality .box .content p{
+    font-size: 1.6rem;
+    color:#666;
+    padding:1rem 0;
+  }
+
+  .admin-utility{
+    background-color: rgb(255 255 255);
+     /* border: 3px solid #666666; */
+    width: 13rem;
+    height: 12rem;
+    margin: 37px auto;
+    border-radius: 13px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+  font-family: 'Josefin Sans', sans-serif;
+  transition: all .5s ease-in-out;
+
+
+}
+
+.admin-utility:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+}
+.admin-utility>a{
+  text-decoration: none;
+    color: #333;
+}
+.admin-panel>img
+  {
+    height: 62px;
+    width: 67px;
+    margin-left: -6px;
+  
+
+}
+.calculator>img{
+      height: 53px;
+    width: 53px;
+    /* margin-left: -19px; */
+    margin-top: 6px;
+}
+.employee>img{
+  height: 66px;
+    width: 72px;
+    margin-left: 14px;
+}
+
+.admin-photo>img {
+      cursor: pointer;
+      margin-left: 14px;
+    }
+    .admin-panel, .calculator, .employee {
+      display: none;
+    }
+
+
+/* Media Query for Small Screens */
+@media (max-width: 767px) {
+ 
+    .admin-utility {
+      width: 13rem;
+    margin: 7px;
+     }
+
+   
+
+    .admin-utility>a>p{
+      display: none;
+      
+    }
+
+    .calculator>img{
+      height: 53px;
+    width: 53px;
+    margin-left: -19px;
+    margin-top: 6px;
+}
+.employee>img{
+  height: 52px;
+  width: 58px;
+  margin-left: -22px;
+  margin-top: 6px;
+}
+   
+  }
+
+
+/* Media Query for Medium Screens */
+@media (min-width: 768px) and (max-width: 991px) {
+
+
+  .admin-utility {
+      width: 16vw;
+    
+     }
+     
+    .calculator>img{
+      height: 53px;
+    width: 53px;
+    /* margin-left: -19px; */
+    margin-top: 6px;
+}
+.employee>img{
+  height: 52px;
+  width: 58px;
+  margin-left: 20px;
+  margin-top: 6px;
+}
+}
+  
+
+{% endblock style %}
+</style>
+
+{% block body %} 
+
+{% if user.is_staff %}
+<div class="admin-utility">
+  <div class="admin-photo" >
+    <img src="../static/images/icons8-admin-64.png" alt="">
+    <p >ADMIN UTILITIES</p>
+  </div>
+  
+  <a class="admin-panel" href="/admin">
+    <img src="../static/images/icons8-control-panel-48.png" alt=""><br>
+   <p>Admin Panel</p>
+  </a>
+  <a class="calculator" href="/calculator">
+ <img src="../static/images/icons8-calculator-48 (1).png" alt="">
+ <p>Bill Calculator</p>
+  </a>
+  <a class="employee" href="/admin/auth/group/">
+    <img src="../static/images/icons8-chef-48.png" alt="">
+    <p>Employee Management</p>
+  </a>
+
+</div>
+{% endif %}
+<section id="home" class="home">
+
+    <div class="image"><img src="../static/images/logo-3.png" alt=""></div>
+
+    <div class="content">
+        <h3>HOT 2 SPICE</h3>
+        <p>The Best Fast-Food Spot in your Locality.
+            Walk-in to enjoy a meal with a great and fulfilling atmosphere
+            OR Order Online
+        </p>
+        <a href="/menu" class="btn">Order Now</a>
+    </div>
+    <section class="speciality" id="speciality">
+
+        <h1 class="speciality-heading"> our <span>speciality</span></h1>
+    
+        <div class="main-box-speciality">
+            
+
+            {%for c in cat%}
+            
+            <div class="box">
+                <!-- <img class="image" src="/media/{{c.0image}}" alt=""> -->
+    
+                <div class="content">
+                    <img src="/media/{{c.image}}" alt="">
+                    <a href="/menu" style="text-decoration: none;"><h3 style="text-decoration: none;">{{c.title}}</h3></a>
+                    <!-- <p>The foundation of a burger is a soft and slightly toasted bun, which cradles the main attraction – the patty. The patty, usually made from chicken and seasoned with various herbs and spices.</p> -->
+                </div>
+            </div>
+            {%endfor%}
+    
+          
+        
+    
+        </div>
+    
+    </section>
+   
+    
+</section>
+
+<script>
+   var isDivsVisible = false;
+  var adminUtility = document.querySelector('.admin-utility');
+
+  //  adminUtility.addEventListener('click', toggleVisibility);
+ function toggleVisibility() {
+  var adminUtility = document.querySelector('.admin-utility');
+  var adminText = document.querySelector('.admin-utility p');
+
+  var divsToToggle = document.querySelectorAll('.admin-panel, .calculator, .employee');
+  isDivsVisible = !isDivsVisible;
+
+  for (var i = 0; i < divsToToggle.length; i++) {
+    divsToToggle[i].style.display = isDivsVisible ? "block" : "none";
+  }
+  if (window.innerWidth < 768) {
+        adminUtility.style.width = isDivsVisible ? '100vw' : '';
+      } else if (window.innerWidth >= 768 && window.innerWidth < 1200) {
+        adminUtility.style.width = isDivsVisible ? '60vw' : '';
+      } else {
+        adminUtility.style.width = isDivsVisible ? '38vw' : '';
+      }
+    }
+
+    adminUtility.addEventListener('click', toggleVisibility);
+</script>
+{% endblock body %}

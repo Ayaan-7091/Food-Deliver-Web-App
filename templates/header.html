@@ -1,0 +1,27 @@
+
+<header class="header">
+         
+    {% load static %}
+    <a href="#" ><img src="{%static 'images/logo-2.png' %}" alt="" id="logo"></a>
+  
+    <nav class="navbar">
+        
+        <a href="/" >HOME</a>
+        <a href="#"><img src="{% static 'images/homeIcon_3.png' %}" alt="" id="homeIcon"> </a>
+        <a href="menu" id="active">MENU</a>
+
+        
+      
+ 
+        <img src="{%static 'images/cart.png'%}" id="cart" alt="" ><a href="order" id="cartNo"  style="color: #2e7ad5;">+</a>
+
+        {% if user.is_authenticated %}
+       <div id="loginButton"> <a href="logout" ><img src="{%static 'images/user.png'%}" alt=""><br><small id="smallUser">{% if user.is_authenticated %} {{user.first_name}} {% endif %}</small><small id="smallLogout">Logout</small></a></div>
+
+       {% else %}
+       <div id="loginButton" > <a href="login" ><img src="{%static 'images/user-login.png'%}" alt=""><br><small id="smallUser"> </small><small id="smallLogin">Login</small></a></div>
+        {% endif %}
+    
+
+    </nav>
+</header>

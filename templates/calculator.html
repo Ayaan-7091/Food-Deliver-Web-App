@@ -1,0 +1,206 @@
+
+{% extends "base.html" %}
+<style>
+{% block style %}
+   
+.container {
+  
+  margin: auto;
+  max-width: 94vw;
+  /* border: 2px solid black; */
+  border-radius: 10px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+  padding-left: 6px;
+  height: 96vh;
+  margin-top:8px;
+}
+
+
+
+.btn {
+    padding: 15px;
+    border: 3px solid rgb(255, 145, 0);
+    border-radius: 18px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    height: 93px;
+    width: 223px;
+    margin: 5px;
+    font-size: 19px;
+  }
+.row {
+    margin: auto;
+    width:94%;
+    max-width:100%;
+}
+
+.input {
+    /* max-width: 10vw; */
+    padding: 28px;
+    margin: 16px;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    height: 50px;
+    width: 618px;
+font-size: 40px;
+}
+
+#name {
+    display: inline;
+    background-color: antiquewhite;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0px;
+}
+
+
+#equal{
+    border-radius: 25px;
+
+background-color: #79ef60;
+
+border: 3px solid white;
+}
+
+#ac{
+    border-radius: 25px;
+    background-color: #000000;
+    color: antiquewhite;
+}
+
+#del{
+    border-radius: 20px;
+    background-color: #ffb300;
+    color: antiquewhite;
+}
+
+#ok{
+    background-color: #ffee5f;
+}
+
+.para{
+    font-family: 'Pacifico', cursive;
+font-size: 46px;
+position: absolute;
+top: -26px;
+left: 945px;
+color: #ffa700;
+}
+#para2{
+    font-family: 'Pacifico', cursive;
+font-size: 67px;
+position: absolute;
+top: 37px;
+left: 895px;
+}
+
+
+/* Media Query for Small Screens */
+@media (max-width: 767px) {
+ 
+    
+    .btn {
+        padding: 0px;
+        border: 3px solid rgb(255, 145, 0);
+        border-radius: 18px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        height: 59px;
+        width: 73px;
+        margin: 2px;
+        font-size: 6px;
+      }
+    
+      .input {
+        max-width: 75vw;
+        padding: 12px;
+        margin: 16px;
+        border: 2px solid black;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        height: 50px;
+        width: 270px;
+        font-size: 28px;
+      }
+      #ac,#del,#ok,#equal {
+       
+        font-size: 25px;
+      }
+      .row {
+        margin: auto;
+        width:96%;
+        max-width:100%;
+    }
+    .container{
+      height:53vh;
+    }
+   
+  }
+
+
+/* Media Query for Medium Screens */
+@media (min-width: 768px) and (max-width: 991px) {
+    .btn {
+        padding: 15px;
+        border: 3px solid rgb(255, 145, 0);
+        border-radius: 18px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        height: 89px;
+        width: 152px;
+        margin: 5px;
+        font-size: 13px;
+
+}
+.row {
+  margin: auto;
+  width:92%;
+  max-width:100%;
+}
+.container{
+height:80vh;
+}
+}{% endblock style %}
+
+    </style>
+
+
+    {% block body %} <form action="">
+    <div class="container ">
+        <input type="text" class="input" name="input" placeholder="BILL CALCULATOR">
+        <div class="row">
+            <!-- <p id="name">CALCULATOR</p> -->
+            <input type="button" value="AC" class="btn"  id="ac"  onclick="input.value =''">
+            <input type="button" value="DEL" class="btn" id="del"  onclick="input.value = input.value.slice(0,-1)">
+          
+        </div>
+        <div class="row ">
+            <input type ="button" class="btn" value="REGULAR PIZZA" onclick="input.value +='50+'">
+            <input type ="button" class="btn" value="BURGER" onclick="input.value +='30+'">
+            <input type ="button" class="btn" value="CHEESE BURGER" onclick="input.value +='50+'">
+            <input type ="button" class="btn" value="DOUBLE GRILL PIZZA" onclick="input.value +='160+'">
+        </div>
+    </form>
+        <div class="row">
+            <input type ="button" class="btn" value="SANDWICH" onclick="input.value +='50+'">
+            <input type ="button" class="btn" value="3-LAYER SANDWICH" onclick="input.value +='120+'">
+            <input type ="button" class="btn" value="COLD DRINK" onclick="input.value +='20+'">
+            <input type ="button" class="btn" value="FRENCH FRIES" onclick="input.value +='50+'">
+        </div>
+
+        <div class="row">
+            <input type ="button" class="btn" value="HOT DOG" onclick="input.value +='100+'">
+            <input type ="button" class="btn" value="ZINGER" onclick="input.value +='40+'">
+            <input type ="button" class="btn" value="MARGHERITA" onclick="input.value +='60+'">
+            <input type ="button" class="btn" value="OK" id="ok" onclick="input.value +='0'">
+        </div>
+
+        <div class="row">
+            <input type ="button" class="btn" value="NUGGETS" onclick="input.value +='100+'">
+            <input type ="button" class="btn" value="TIKKA PIZZA" onclick="input.value +='120+'">
+            <input type ="button" class="btn" value="FARMHOUSE PIZZA" onclick="input.value +='140+'">
+            
+            <input type ="button" class="btn" id="equal" value="=" onclick="input.value=eval(input.value)">
+        </div>
+    </div>
+    {% endblock body %}
+

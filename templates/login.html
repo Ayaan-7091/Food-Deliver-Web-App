@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+<style>
+{% block style %}
+
+.card1{
+    margin: 5rem auto ;
+    font-size: 25px;
+  font-family: 'Josefin Sans', sans-serif;
+  width: 50%;
+  border: 2px solid white;
+  background-color: #ffa104;
+
+}
+
+input{
+background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  padding: 3px;
+  margin: 5px;
+  width: 90;
+  border: 2px solid white;
+
+}
+
+
+
+
+
+.card1>p{
+     color: #e58f00;
+     margin: 5px;
+    font-family: 'Pacifico', cursive;
+
+}
+
+.register{
+    border: 2px solid black;
+  background-color: white;
+
+}
+button{
+
+    border-radius: 15px;
+  background-color: #267e3e;
+  color: aliceblue;
+  border: 2px solid #267e3e;
+  margin: 17px;
+  padding: 9px;
+
+   
+}
+
+#register{
+    color: white;
+    text-decoration: none;
+}
+@media screen and (max-width: 767px) {
+    .card1 {
+        width: 90%; /* Adjust as needed for small screens */
+        font-size: 16px;
+    }
+    input{
+        width:60%
+
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .card1 {
+        width: 60%; /* Adjust as needed for medium screens */
+        font-size: 18px;
+
+    }
+    input{
+        width:60%
+
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .card1 {
+        width: 40%; /* Adjust as needed for large screens */
+    }
+    input{
+        width:60%
+
+    }
+}
+
+{% endblock style %}
+</style>
+
+{% block body %}
+
+<div class="main" style="width: 100%;">
+ 
+<div class="card1 text-center">
+    <div class="card1 register">
+        <p class="text-center">Log In</p>
+    </div>
+    <form action="" method="post">
+    {% csrf_token %}
+
+  
+
+
+    <div class="form-group ">
+        <input type="username" name="username" placeholder="Username">
+     </div>
+     <div class="form-group ">
+        <input type="password" name="password" placeholder="Password">
+     </div>
+ 
+    <button type="submit">Login</button><br>
+    <small>Don't have an account , <a href="signup" id="register">Signup <img src="../static/images/icons8-register-48.png" alt="">
+    </a></small>
+
+    {% if messages %}
+
+    {% for msg in messages %}
+   <p>{{ msg }}</p> 
+    {% endfor %} 
+
+    {% endif %}
+</form>
+
+
+</div>
+</div>
+
+{% endblock body %}

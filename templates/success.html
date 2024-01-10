@@ -1,0 +1,139 @@
+{% include "base.html" %}
+
+{% block title %}
+
+{% endblock title %}
+
+<style>
+{% block style %}
+
+.card1{
+
+    margin: 60px auto;
+    width: 100rem;
+    background-color: #4caf50;
+}
+.container{
+    border-radius: 8px;
+    padding: 15px;
+    height: 15rem;
+
+}
+.container>p{
+    font-size: 30px;
+
+}
+
+.images{
+    height: 12rem;
+  width: 39rem;
+  margin: 5rem auto;
+
+}
+
+.images>img{
+    height: 84%;
+  width: 29%;
+  margin-left: 14px;
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 767px) {
+    .card1 {
+        width: 95%;
+        margin: 180px auto;
+    }
+
+    .container {
+        padding: 10px;
+        height: 21rem;
+
+    }
+
+    .container > p {
+        font-size: 12px;
+    }
+
+    .images > img {
+  height: 71%;
+  width: 24%;
+  margin-left: 14px;
+}
+
+.images {
+  height: 9rem;
+  width: 26rem;
+  margin: 2rem auto;
+}
+}
+
+/* Media Query for Medium Screens */
+@media (min-width: 768px) and (max-width: 991px) {
+    .card1 {
+        width: 80%;
+        margin: 50px auto;
+    }
+
+    .container {
+        padding: 12px;
+        height: 32rem;
+
+    }
+
+    .container > p {
+        font-size: 24px;
+    }
+}
+
+/* Media Query for Large Screens */
+@media (min-width: 992px) {
+    .card1 {
+        width: 100rem;
+        margin: 60px auto;
+    }
+
+    .container {
+        padding: 15px;
+        height: 38rem;
+    }
+
+    .container > p {
+        font-size: 30px;
+        
+    }
+    .images{
+    height: 12rem;
+  width: 39rem;
+  margin: 5rem auto;
+
+}
+
+.images>img{
+    height: 84%;
+  width: 29%;
+  margin-left: 14px;
+}
+
+}
+
+{% endblock style %}
+</style>
+
+
+
+{% block body %}
+
+
+<div class="card1">
+    <div class="container">
+        <p>{{user.username}}, your Order is placed Successfully   <img src="../static/images/icons8-status-48.png" alt=""> </p>
+    
+        <p>Mode of Payment : Cash On Delivery </p>
+        <p>For any changes in Order Contact : +91 9909111931</p>
+
+        <div class="images"><img src="../static/images/step-2.jpg" class="image-responsive"> <img src="../static/images/loader.gif"  class="img-responsive"> <img src="../static/images/step-3.jpg"  class="img-responsive"></div>
+    </div>
+</div>
+
+
+{% endblock body %}
